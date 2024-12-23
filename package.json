@@ -1,0 +1,47 @@
+{
+  "name": "@kepler/monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Monorepo for Kepler",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "build:force": "turbo run build:force",
+    "deploy": "turbo run deploy",
+    "analyze": "turbo run analyze",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "docker:all": "docker compose -f docker-compose.yaml up -d",
+    "docker:build": "turbo run docker:build",
+    "docker:build:bot": "docker build -t kepler/bot:latest -f ./apps/bot/Dockerfile .",
+    "docker:run:bot": "docker run -it --init --rm --env-file .env kepler/bot:latest",
+    "format": "turbo run format",
+    "format:check": "turbo run format:check",
+    "prisma:generate": "turbo run prisma:generate ",
+    "prisma:migrate": "turbo run prisma:migrate ",
+    "prisma:format": "turbo run prisma:format ",
+    "prisma:seed": "turbo run prisma:seed --no-cache",
+    "prisma:studio": "turbo run prisma:studio",
+    "prisma:push": "turbo run prisma:push"
+  },
+  "prisma": {
+    "schema": "packages/database/prisma/schema.prisma",
+    "seed": "node packages/database/src/seed.js"
+  },
+  "dependencies": {
+    "dotenv-cli": "7.4.1",
+    "turbo": "1.13.2"
+  },
+  "devDependencies": {
+    "@igorkowalczyk/eslint-config": "2.2.0",
+    "@igorkowalczyk/prettier-config": "2.2.0",
+    "eslint": "8.57.0",
+    "eslint-plugin-turbo": "1.13.2",
+    "prettier": "3.2.5"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "homepage": "https://keplerbot.xyz"
+}

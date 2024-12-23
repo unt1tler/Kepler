@@ -1,0 +1,29 @@
+{
+ "name": "@kepler/config",
+ "version": "6.0.0",
+ "description": "Kepler shared config for all packages and projects",
+ "exports": {
+  ".": "./index.js",
+  "./bot": "./configs/bot.js",
+  "./dashboard": "./configs/dashboard.js",
+  "./debugger": "./configs/debugger.js",
+  "./global": "./configs/global.js",
+  "./permissions": "./configs/permissions.js"
+ },
+ "type": "module",
+ "scripts": {
+  "format": "prettier . --write --cache --ignore-unknown",
+  "format:check": "prettier . --check --cache",
+  "lint": "eslint .",
+  "lint:fix": "eslint . --fix"
+ },
+ "dependencies": {
+  "discord-api-types": "0.37.81",
+  "dotenv": "16.4.5"
+ },
+ "engines": {
+  "node": ">=20.0.0"
+ },
+ "homepage": "https://keplerbot.xyz/",
+ "packageManager": "pnpm@9.0.6"
+}
